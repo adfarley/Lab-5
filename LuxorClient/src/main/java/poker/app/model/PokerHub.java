@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import exceptions.DeckException;
 import netgame.common.Hub;
@@ -74,30 +75,36 @@ public class PokerHub extends Hub {
 				
 				//TODO - Lab #5 Do all the things you need to do to start a game!!
 				
-				//	Determine which game is selected (from RootTableController)
-				//		1 line of code
+				//Determine which game is selected (from RootTableController)
+				
 				
 				//	Get the Rule based on the game selected
 				//		1 line of code
-
-			
+				eGame gameSelect = act.geteGame();
+				Rule r = new Rule(gameSelect);
+					
 				//	The table should eventually allow multiple instances of 'GamePlay'...
 				//		Each game played is an instance of 'GamePlay'...
 				//		For the first instance of GamePlay, pick a random player to be the 
 				//		'Dealer'...  
 				//		< 5 lines of code to pick random player
+				Player Dealer = HubPokerTable.PickRandomPlayerAtTable();
+				UUID DealerID = Dealer.getPlayerID();
+				
 				
 				
 				//	Start a new instance of GamePlay, based on rule set and Dealer (Player.PlayerID)
 				//		1 line of code
-				
+				GamePlay g = new GamePlay(r, DealerID);
 				
 				//	There are 1+ players seated at the table... add these players to the game
 				//		< 5 lines of code
+				g.setGamePlayers(HubPokerTable.getHashPlayers());
 				
 				//	GamePlay has a deck...  create the deck based on the game's rules (the rule
 				//		will have number of jokers... wild cards...
 				//		1 line of code
+				g.setGameDeck(new Deck(r.GetNumberOfJokers(),r.GetWildCards()));
 
 				//	Determine the order of players and add each player in turn to GamePlay.lnkPlayerOrder
 				//	Example... four players playing...  seated in Position 1, 2, 3, 4
