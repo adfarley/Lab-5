@@ -236,13 +236,22 @@ public class PokerTableController {
 
 	public void Handle_GameState(GamePlay HubGamePlay) 
 	{
-		/*
+		
+		
 		imgViewDealerButtonPos1.setVisible(false);
 		imgViewDealerButtonPos2.setVisible(false);
 		imgViewDealerButtonPos3.setVisible(false);
 		imgViewDealerButtonPos4.setVisible(false);
-		*/
-
+		
+		
+		if (HubGamePlay.getGameDealer() == HubGamePlay.getPlayerByPosition(1).getPlayerID())
+			imgViewDealerButtonPos1.setVisible(true);
+		if (HubGamePlay.getGameDealer() == HubGamePlay.getPlayerByPosition(2).getPlayerID())
+			imgViewDealerButtonPos2.setVisible(true);
+		if (HubGamePlay.getGameDealer() == HubGamePlay.getPlayerByPosition(3).getPlayerID())
+			imgViewDealerButtonPos3.setVisible(true);
+		if (HubGamePlay.getGameDealer() == HubGamePlay.getPlayerByPosition(4).getPlayerID())
+			imgViewDealerButtonPos4.setVisible(true);
 		//TODO - Lab #5: Check to see if you're the dealer..  If you are, make the imgViewDealerButtonX visible = true
 		
 	}

@@ -1,14 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane prefHeight="650.0" prefWidth="850.0" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poker.app.view.RootLayoutController">
+<BorderPane prefHeight="650.0" prefWidth="850.0" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poker.app.view.RootLayoutController">
    <top>
       <MenuBar fx:id="mb" prefHeight="0.0" prefWidth="1064.0">
         <menus>
+            <Menu mnemonicParsing="false" text="Betting Rules">
+              <items>
+                  <MenuItem mnemonicParsing="false" text="No Pot Limit">
+                     <graphic>
+                        <ToggleButton mnemonicParsing="false" selected="true">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="togglegroup1" />
+                           </toggleGroup>
+                        </ToggleButton>
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem mnemonicParsing="false" text="Set Pot Limit">
+                     <graphic>
+                        <ToggleButton mnemonicParsing="false" toggleGroup="$togglegroup1" />
+                     </graphic>
+                  </MenuItem>
+              </items>
+            </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
               <MenuItem mnemonicParsing="false" text="About" />
